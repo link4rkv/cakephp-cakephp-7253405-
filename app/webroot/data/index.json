@@ -1,0 +1,100 @@
+{
+  "sales":   [
+        {
+            "ProductsSale": {
+                "id": "2",
+                "sale_id": "1",
+                "product_id": "1",
+                "quantity": "8"
+            },
+            "Sale": {
+                "id": "1",
+                "customer_id": "1",
+                "order_date": "2014-08-13",
+                "order_value": "20",
+                "tax_percentage": "5",
+                "tax_amount": "100",
+                "Customer": {
+                    "name": "Rahul"
+                }
+            },
+            "Product": {
+                "id": "1",
+                "name": "samsung",
+                "price": "12"
+            }
+        },
+        {
+            "ProductsSale": {
+                "id": "1",
+                "sale_id": "2",
+                "product_id": "2",
+                "quantity": "4"
+            },
+            "Sale": {
+                "id": "2",
+                "customer_id": "2",
+                "order_date": "2014-07-17",
+                "order_value": "30",
+                "tax_percentage": "5",
+                "tax_amount": "100",
+                "Customer": {
+                    "name": "Aditya"
+                }
+            },
+            "Product": {
+                "id": "2",
+                "name": "nokia",
+                "price": "14"
+            }
+        },
+        {
+            "ProductsSale": {
+                "id": "3",
+                "sale_id": "3",
+                "product_id": "3",
+                "quantity": "6"
+            },
+            "Sale": {
+                "id": "3",
+                "customer_id": "3",
+                "order_date": "2014-08-22",
+                "order_value": "60",
+                "tax_percentage": "5",
+                "tax_amount": "100",
+                "Customer": {
+                    "name": "Anuj"
+                }
+            },
+            "Product": {
+                "id": "3",
+                "name": "apple",
+                "price": "16"
+            }
+        },
+        {
+            "ProductsSale": {
+                "id": "4",
+                "sale_id": "4",
+                "product_id": "4",
+                "quantity": "10"
+            },
+            "Sale": {
+                "id": "4",
+                "customer_id": "4",
+                "order_date": "2014-07-19",
+                "order_value": "50",
+                "tax_percentage": "5",
+                "tax_amount": "100",
+                "Customer": {
+                    "name": "Manuj"
+                }
+            },
+            "Product": {
+                "id": "4",
+                "name": "htc",
+                "price": "64"
+            }
+        }
+    ]
+}

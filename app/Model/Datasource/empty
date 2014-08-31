@@ -1,0 +1,100 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 16, 2014 at 11:55 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `sales_order`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE IF NOT EXISTS `customers` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `product_id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `price` int(10) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products_sales`
+--
+
+CREATE TABLE IF NOT EXISTS `products_sales` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `sales_id` int(10) DEFAULT NULL,
+  `products_id` int(10) DEFAULT NULL,
+  `quantity` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sales_id` (`sales_id`),
+  KEY `products_id` (`products_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sales`
+--
+
+CREATE TABLE IF NOT EXISTS `sales` (
+  `sale_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customers_id` int(10) DEFAULT NULL,
+  `order_date` date DEFAULT NULL,
+  `order_value` int(10) DEFAULT NULL,
+  `tax_percentage` int(2) DEFAULT NULL,
+  `tax_amount` int(10) DEFAULT NULL,
+  PRIMARY KEY (`sale_id`),
+  KEY `customers_id` (`customers_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products_sales`
+--
+ALTER TABLE `products_sales`
+  ADD CONSTRAINT `products_sales_ibfk_2` FOREIGN KEY (`products_id`) REFERENCES `products` (`product_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_sales_ibfk_1` FOREIGN KEY (`sales_id`) REFERENCES `sales` (`sale_id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sales`
+--
+ALTER TABLE `sales`
+  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`customers_id`) REFERENCES `customers` (`customer_id`) ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
